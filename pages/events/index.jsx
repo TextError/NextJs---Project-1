@@ -11,8 +11,8 @@ const Events = () => {
 
   return (
     <>
-      <EventList events={events} />
       <EventSearch onSearch={onSearch} />
+      <EventList events={events} />
     </>
   );
 }

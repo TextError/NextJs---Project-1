@@ -8,11 +8,14 @@ import EventContent from '../../components/events/EventContent';
 const EventId = () => {
   const { query: { id }} = useRouter();
   const event = data.filter(ev => ev.id === id);
-  console.log(event)
   const { description, title, date, location, image, alt } = event[0];
 
 
-  if(!event) return <p>No Event found!</p>
+  if(!event) return (
+    <div className='error'>
+      <p>No Event found!</p>
+    </div>
+  );
 
   return (
     <>
