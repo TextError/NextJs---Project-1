@@ -1,6 +1,6 @@
 import EventItem from "./EventItem";
 
-import classes from './event-list.module.css';
+import classes from '../../styles/event-list.module.css';
 
 const EventList = ({ events }) => {
   return (
