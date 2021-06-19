@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import classes from '../../../styles/button.module.css';
+import classes from './button.module.css';
 
 const Button = ({ children, to }) => (
   <Link href={to}>

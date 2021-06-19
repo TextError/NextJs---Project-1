@@ -1,9 +1,9 @@
-import Button from './ui/Button';
-import DateIcon from './icons/date-icon';
-import AddresIcon from './icons/address-icon';
-import Arrow from './icons/arrow-right-icon';
+import Button from '../common/ui/Button';
+import DateIcon from '../common/icons/date-icon';
+import AddresIcon from '../common/icons/address-icon';
+import Arrow from '../common/icons/arrow-right-icon';
 
-import classes from '../../styles/event-item.module.css';
+import classes from './event-item.module.css';
 
 const EventItem = ({ title, image,  date, location, id }) => (
   <li className={classes.item}>
