@@ -7,9 +7,9 @@ const Header = () => (
     <div className={classes.logo}>
       <Link href='/'>Next Events</Link>
     </div>
-    <nav>
+    <nav className={classes.navigation}>
       <ul>
-        <li className={classes.navigation}>
+        <li>
          <Link href='/events'>Borwse All Events</Link> 
         </li>
       </ul>
