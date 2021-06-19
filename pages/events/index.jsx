@@ -1,7 +1,9 @@
+import events from '../../data';
+import EventList from '../../components/common/EventList';
 
 const Events = () => (
   <>
-    Events
+    <EventList events={events} />
   </>
 );
 
