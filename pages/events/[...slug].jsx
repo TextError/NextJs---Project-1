@@ -1,11 +1,8 @@
-import { useRouter } from 'next/router';
-import data from '../../data';
-
 import Button from '../../components/common/ui/Button';
 import EventList from '../../components/common/EventList';
 import Title from '../../components/events/Title';
 
-const Slug = ({ hasError, events, date }) => {
+const Slug = ({ hasError, events, numYear, numMonth }) => {
   // const { query: { slug }} = useRouter();
 
   // if(!slug) return <p className='center'>Loading</p>
@@ -41,7 +38,7 @@ const Slug = ({ hasError, events, date }) => {
     </>
   );
 
-  // const date = new Date(numYear, numMonth-1);
+  const date = new Date(numYear, numMonth-1);
 
   return (
     <>
@@ -79,6 +76,6 @@ export const getServerSideProps = async ({ params: { slug }}) => {
 
 
   return {
-    props: { events: filterEvts, date: new Date(numYear, numMonth-1) }
+    props: { events: filterEvts, numYear, numMonth }
   }
 };

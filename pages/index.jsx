@@ -1,7 +1,14 @@
+import Head from 'next/head';
 import EventList from '../components/common/EventList';
 
 const Home = ({ isFeaturedEvents }) => (
-  <EventList events={isFeaturedEvents} />
+  <>
+    <Head>
+      <title>index page</title>
+      <meta name='description' content='lorem ipsum' />
+    </Head>
+    <EventList events={isFeaturedEvents} />
+  </>
 );
 
 export default Home;
