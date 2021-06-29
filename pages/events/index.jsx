@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import EventList from '../../components/common/EventList';
 import EventSearch from '../../components/events/EventSearch';
 
-const Events = () => {
+const Events = ({ events }) => {
 
   const { push } = useRouter();
 
@@ -18,3 +18,16 @@ const Events = () => {
 }
 
 export default Events;
+
+export const getStaticProps = () => {
+  const url = 'https://nextjs-max-aa84a-default-rtdb.europe-west1.firebasedatabase.app/events.json'
+  const data = await (await fetch(url)).json();
+
+  let events = [];
+  for(const key in data) events.push({ id: key, ...data[key] });
+
+  return {
+    props: { events },
+    revalidate: 60
+  }
+};
