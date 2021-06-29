@@ -9,8 +9,8 @@ const EventId = ({ event }) => {
 
 
   if(!event) return (
-    <div className='error'>
-      <p>No Event found!</p>
+    <div className='center'>
+      <p>Loading</p>
     </div>
   );
 
@@ -32,12 +32,13 @@ export const getStaticPaths = async () => {
   const data = await (await fetch(url)).json();
   let events = [];
   for(const key in data) events.push({ id: key, ...data[key] });
+  const isFeaturedEvents = events.filter(el => el.isFeatured);
 
-  const paths = events.map(el => ({ params: { id: el.id }}));
+  const paths = isFeaturedEvents.map(el => ({ params: { id: el.id }}));
 
   return { 
     paths,
-    fallback: false
+    fallback: true
   };
 };
 
@@ -51,6 +52,7 @@ export const getStaticProps = async ({ params: { id }}) => {
   const event = events.filter(ev => ev.id === id);
 
   return {
-    props: { event }
+    props: { event },
+    revalidate: 30
   };
 };

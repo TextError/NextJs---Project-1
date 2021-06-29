@@ -15,6 +15,7 @@ export const getStaticProps = async () => {
   const isFeaturedEvents = events.filter(el => el.isFeatured);
 
   return {
-    props: { isFeaturedEvents }
+    props: { isFeaturedEvents },
+    revalidate: 1800
   }
 };
