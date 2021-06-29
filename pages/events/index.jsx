@@ -19,7 +19,7 @@ const Events = ({ events }) => {
 
 export default Events;
 
-export const getStaticProps = () => {
+export const getStaticProps = async () => {
   const url = 'https://nextjs-max-aa84a-default-rtdb.europe-west1.firebasedatabase.app/events.json'
   const data = await (await fetch(url)).json();
 
